@@ -1,9 +1,13 @@
 # Weather-App-React-Native
 
 iOS app for comparing weather forecast with historical data built with [react-native](https://facebook.github.io/react-native/).
-The source code is published for knowledge sharing purposes.
+The source code is published for knowledge sharing purposes. This repo in particular is a fork for it to run on [Expo](https://expo.io)
 
-# Demo
+# Run it on Expo
+
+- Open https://expo.io/@community/weather-app-react-native
+
+# Run it on the App Store
 <table>
     <tr>
         <td><a href="https://www.youtube.com/watch?v=Z0eKfLKoo7w"><img src="http://i.giphy.com/Ow17HWlGTmtfG.gif" alt="Weather-App-React-Native"/></a></td>
@@ -23,7 +27,7 @@ The source code is published for knowledge sharing purposes.
 * d3.js (interpolate, scale, shape)
 * react-native-svg
 
-Check `package.json` for details  
+Check `package.json` for details
 
 # Used API
 
@@ -34,7 +38,7 @@ Check `package.json` for details
 
 * clone repo
 * type`$ npm install`
-* create file `./credentials.json`    
+* create file `./credentials.json`
 
 ```
 {
@@ -42,7 +46,5 @@ Check `package.json` for details
     "MAPZEN_API_KEY": "{MAPZEN_API_KEY}"
 }
 ```
-* setup FacebookSDK as [described here](https://github.com/facebook/react-native-fbsdk)
-* type `$ ./node_modules/.bin/react-native link`
-
-Then you can follow [react-native docs to run on device](https://facebook.github.io/react-native/docs/running-on-device-ios.html#content). Or just [download it from AppStore](https://itunes.apple.com/us/app/zowni/id1140299292?ls=1&mt=8) and try.
+* `npm i -g exp`
+* `exp start --ios`
