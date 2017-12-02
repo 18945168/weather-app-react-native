@@ -9,8 +9,9 @@ const text = React.createFactory(require('./text'));
 const textInput = React.createFactory(require('react-native').TextInput);
 const view = React.createFactory(require('react-native').View);
 const scrollView = React.createFactory(require('react-native').ScrollView);
+const {BlurView} = require('expo');
 const blurView = React.createFactory(
-    require('react-native-blur').BlurView
+    BlurView,
 );
 const touchableOpacity = React.createFactory(
     require('react-native').TouchableOpacity
@@ -70,7 +71,7 @@ module.exports = connect(
         const top = citySelect ? 0 : -height;
         return blurView(
             {
-                blurType: 'dark',
+                tint: 'dark',
                 style: {
                     position: 'absolute',
                     left: 0,

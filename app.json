@@ -1,0 +1,21 @@
+{
+  "expo": {
+    "name": "Zowni",
+    "description": "iOS-only app for comparing weather forecast with historical data. Expo fork at: https://github.com/brentvatne/weather-app-react-native / Original at: https://github.com/delfrrr/weather-app-react-native and on the App Store at https://itunes.apple.com/us/app/zowni/id1140299292?ls=1&mt=8",
+    "slug": "weather-app-react-native",
+    "privacy": "public",
+    "sdkVersion": "23.0.0",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "primaryColor": "#cccccc",
+    "icon": "./assets/icon.png",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "ios": {
+      "supportsTablet": true
+    }
+  }
+}

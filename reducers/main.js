@@ -5,7 +5,6 @@
 
 const redux = require('redux');
 const {AsyncStorage, Alert, NativeModules} = require('react-native');
-const {InAppUtils, Locale} = NativeModules;
 const url = require('url');
 const moment = require('moment-timezone');
 const lodash = require('lodash');
@@ -99,23 +98,27 @@ s * @see https://en.wikipedia.org/wiki/12-hour_clock
  * @return {Promise.<Boolean>}
  */
 function detect12h() {
-    return Locale.dateFormat(Date.now(), 'short', 'short').then((d) => {
-        return Boolean(d.match(/[ap]m/i));
-    });
+    return new Promise(resolve => resolve(true));
+    // return Locale.dateFormat(Date.now(), 'short', 'short').then((d) => {
+
+        // return Boolean(d.match(/[ap]m/i));
+    // });
 }
 
 /**
  * @return {string} us or metric
  */
 function getUnitSystem() {
-    return Locale.measurementSystem === 'U.S.' ? 'us' : 'metric';
+    return 'metric';
+    // return Locale.measurementSystem === 'U.S.' ? 'us' : 'metric';
 }
 
 /**
  * @return {string}
  */
 function getTemperatureFormat() {
-    return Locale.measurementSystem === 'U.S.' ? 'F' : 'C';
+    return 'F';
+    // return Locale.measurementSystem === 'U.S.' ? 'F' : 'C';
 }
 
 let store;
@@ -759,13 +762,14 @@ function loadProducts(products = [
     'org.reactjs.native.example.zowninative.twokrequests'
 ]) {
     return new Promise((resolve, reject) => {
-        return InAppUtils.loadProducts(products, (err, res) => {
-            if (err) {
-                reject(err);
-            } else {
-                resolve(res);
-            }
-        });
+        resolve({});
+        // return InAppUtils.loadProducts(products, (err, res) => {
+        //     if (err) {
+        //         reject(err);
+        //     } else {
+        //         resolve(res);
+        //     }
+        // });
     })
 }
 

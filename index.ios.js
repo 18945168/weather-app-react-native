@@ -263,4 +263,4 @@ let zowninative = React.createClass({
     }
 });
 
-AppRegistry.registerComponent('zowninative', () => zowninative);
+export default zowninative;

@@ -4,6 +4,7 @@
  */
 
 const React = require('react');
+import { Share } from 'react-native';
 const text = React.createFactory(require('./text'));
 const nextIcon = React.createFactory(require('./nextIcon'));
 const view = React.createFactory(require('react-native').View);
@@ -27,10 +28,10 @@ const svg = React.createFactory(
 const defs = React.createFactory(require('react-native-svg').Defs);
 const stop = React.createFactory(require('react-native-svg').Stop);
 const rect = React.createFactory(require('react-native-svg').Rect);
-const {ShareDialog, MessageDialog, AppEventsLogger} = require('react-native-fbsdk');
 const linkObj  = {
-    contentType: 'link',
-    contentUrl: 'http://zowni.com'
+    url: 'http://zowni.com',
+    message: 'http://zowni.com',
+    title: 'Zowni Weather App'
 };
 const reportError = require('../lib/reportError');
 
@@ -44,36 +45,7 @@ module.exports = connect(
     }
 )(React.createClass({
     shareInMessanger: function () {
-        Promise.all([
-            MessageDialog.canShow(linkObj),
-            ShareDialog.canShow(linkObj)
-        ]).then(
-            ([messanger, facebook]) => {
-                if (messanger) {
-                    return MessageDialog.show(linkObj);
-                } else if (facebook) {
-                    return ShareDialog.show(linkObj);
-                } else {
-                    AlertIOS.alert(
-                        'Oh..',
-                        'Looks like Facebook does not work for you.'
-                    );
-                }
-            }
-        ).then(result => {
-            if (
-                result &&
-                !result.isCancelled
-            ) {
-                AlertIOS.alert('Thank you!');
-                AppEventsLogger.logEvent('fbsharesuccessfull');
-            } else {
-                AlertIOS.alert('Thank you', 'for trying');
-                AppEventsLogger.logEvent('fbsharetry');
-            }
-        }).catch(err => {
-            reportError(err);
-        });
+        Share.share(linkObj);
     },
     render: function () {
         const {

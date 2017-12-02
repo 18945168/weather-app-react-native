@@ -13,7 +13,7 @@ const wind = React.createFactory(require('./wind'));
 const snow = React.createFactory(require('./snow'));
 const connect = require('react-redux').connect;
 const getDataPoints = require('../lib/getDataPoints');
-const moment = require('moment');
+const moment = require('moment-timezone');
 const formatTemperature = require('../lib/format-temperature');
 
 /**
